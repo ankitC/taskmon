@@ -1,0 +1,83 @@
+package com.example.taskmon;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GraphViewSeries;
+import com.jjoe64.graphview.LineGraphView;
+import com.jjoe64.graphview.GraphView.GraphViewData;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.app.Activity;
+import android.util.Log;
+import android.view.Menu;
+import android.widget.LinearLayout;
+
+public class ViewGraphs extends Activity {
+
+	// public static double systime = System.currentTimeMillis();
+
+	public static GraphView graphView;
+	private int pid = 2036;
+	private double t;
+	private Runnable mTimer;
+	private Handler handler = new Handler();
+	private long period;
+	private GraphViewSeries dataSeries;
+	
+	public String debug = "TEAM11";
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_view_graphs);
+		graphView = new LineGraphView(this, "Utilization Graphs");
+		graphView.setViewPort(1, 8);
+		graphView.setScalable(true);
+		LinearLayout layout = (LinearLayout) findViewById(R.id.graph);
+		dataSeries = new GraphViewSeries(new GraphViewData[]{new GraphViewData(0, 0.0d)});
+		layout.addView(ViewGraphs.graphView);
+
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.view_graphs, menu);
+		return true;
+	}
+
+	protected void onResume() {
+		super.onResume();
+
+		mTimer = new Runnable() {
+			@Override
+			public void run() {
+				String filename = "/sys/rtes/tasks/" + pid + "/util";
+				String data = null;
+				try {
+					BufferedReader brn = new BufferedReader(new FileReader(
+							filename));
+					data = brn.readLine();
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				if (!(data == null)) {
+					double dataPoint = Double.parseDouble(data);
+					Log.w(debug, "datapoint:"+dataPoint+ " Cutrrent systime:"+System.currentTimeMillis());
+					dataSeries.appendData(
+							new GraphViewData(System.currentTimeMillis(),
+									dataPoint), true, 10);
+					ViewGraphs.graphView.addSeries(dataSeries);
+					handler.postDelayed(this, 4000);
+				}
+
+			}
+		};
+		handler.postDelayed(mTimer, 4000);
+	}
+
+}
