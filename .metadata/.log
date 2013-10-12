@@ -6165,3 +6165,36 @@ org.eclipse.core.internal.resources.ResourceException: The project description f
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1414)
 !SUBENTRY 2 org.eclipse.core.resources 4 567 2013-10-09 19:36:10.425
 !MESSAGE The project description file (.project) for 'graphing' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+!SESSION 2013-10-09 19:51:37.805 -----------------------------------------------
+eclipse.buildId=v22.0.5-757759
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2013-10-09 19:51:42.079
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.android.ide.eclipse.ddms 4 0 2013-10-09 19:51:48.037
+!MESSAGE DDMS files not found: /home/ankit/adt-bundle/sdk/platform-tools/adb /home/ankit/adt-bundle/sdk/tools/hprof-conv /home/ankit/adt-bundle/sdk/tools/traceview 
+!SESSION 2013-10-11 00:54:03.324 -----------------------------------------------
+eclipse.buildId=v22.0.5-757759
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2013-10-11 00:54:07.351
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+!SESSION 2013-10-11 23:01:01.515 -----------------------------------------------
+eclipse.buildId=v22.0.5-757759
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product com.android.ide.eclipse.adt.package.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2013-10-11 23:01:04.620
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.

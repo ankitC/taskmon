@@ -16,13 +16,25 @@ public class Observer implements Runnable {
 	public double t;
 	private long period;
 	public GraphViewSeries dataSeries;
+	public static int colorIndex = 0;
+	private int color;
 
 	public Observer(int pid, double t){
 		this.pid = pid;
 		this.t = t;
 		period = (long) (t/1000000);
 		dataSeries = new GraphViewSeries(new GraphViewData[]{new GraphViewData(0, 0.0d)});
+		color = (colorIndex++%5);
 	}
+	public int getColor() {
+		return color;
+	}
+
+	public void setColor(int color) {
+		this.color = color;
+	}
+
+	
 
 	public void run(){
 
@@ -59,6 +71,38 @@ public class Observer implements Runnable {
 		//handler.postDelayed(mTimer, 1000);
 
 
+	}
+
+	public GraphViewSeries getDataSeries() {
+		return dataSeries;
+	}
+
+	public void setDataSeries(GraphViewSeries dataSeries) {
+		this.dataSeries = dataSeries;
+	}
+
+	public int getPid() {
+		return pid;
+	}
+
+	public void setPid(int pid) {
+		this.pid = pid;
+	}
+
+	public double getT() {
+		return t;
+	}
+
+	public void setT(double t) {
+		this.t = t;
+	}
+
+	public long getPeriod() {
+		return period;
+	}
+
+	public void setPeriod(long period) {
+		this.period = period;
 	}
 	
 	

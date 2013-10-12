@@ -11,7 +11,6 @@
 <fullyQualifiedTypeName name="com.example.taskmon.R.id"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="android.content.Intent"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="java.lang.Runnable"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
@@ -22,13 +21,14 @@
 <fullyQualifiedTypeName name="com.jjoe64.graphview.GraphView"/>
 <fullyQualifiedTypeName name="android.os.Handler"/>
 <fullyQualifiedTypeName name="java.io.FileReader"/>
-<fullyQualifiedTypeName name="com.example.taskmon.ViewGraphs"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="com.example.taskmon.Observer"/>
 <fullyQualifiedTypeName name="java.util.LinkedHashMap"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="com.example.taskmon.SetReserveActivity"/>
 <fullyQualifiedTypeName name="com.example.taskmon.MainActivity"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="android.graphics.Color"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="com.example.taskmon.SetReserveActivity"/>
+<fullyQualifiedTypeName name="com.example.taskmon.ViewGraphs"/>
 </qualifiedTypeNameHistroy>

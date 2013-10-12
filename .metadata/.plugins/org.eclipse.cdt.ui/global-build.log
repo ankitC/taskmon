@@ -348,3 +348,487 @@ Install        : libreservationFramework.so => libs/armeabi/libreservationFramew
 Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
 
 **** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Compile thumb  : reservationFramework <= set_reserve.c
+jni/set_reserve.c: In function 'Java_com_example_taskmon_SetReserveActivity_setReserve':
+jni/set_reserve.c:25:18: error: '__NR_set_reserve' undeclared (first use in this function)
+jni/set_reserve.c:25:18: note: each undeclared identifier is reported only once for each function it appears in
+jni/set_reserve.c: In function 'Java_com_example_taskmon_CancelReserveActivity_cancelReserve':
+jni/set_reserve.c:32:18: error: '__NR_cancel_reserve' undeclared (first use in this function)
+make: *** [obj/local/armeabi/objs/reservationFramework/set_reserve.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Compile thumb  : reservationFramework <= set_reserve.c
+SharedLibrary  : libreservationFramework.so
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****
+
+**** Build of configuration Default for project taskmon ****
+
+/home/akshita/android-ndk-r9/ndk-build 
+Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
+
+**** Build Finished ****

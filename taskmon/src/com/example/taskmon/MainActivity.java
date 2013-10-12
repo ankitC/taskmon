@@ -4,6 +4,7 @@ package com.example.taskmon;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,6 +13,7 @@ import android.widget.Button;
 public class MainActivity extends Activity {
 	
 	public static double startTime;
+	public static String debug = "TEAM11";
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +28,9 @@ public class MainActivity extends Activity {
         setReserveButton.setOnClickListener(new  OnClickListener() {
 			
 			@Override
+			
 			public void onClick(View v) {
+				Log.w(debug, "Setting Reserve\n");
 				Intent setReserveIntent = new Intent(getApplicationContext(),SetReserveActivity.class);
 				startActivity(setReserveIntent);
 			}
@@ -42,10 +46,10 @@ public class MainActivity extends Activity {
 		});
 
         viewGraphsButton.setOnClickListener(new OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				
+				Log.w(debug, "Viewing graphs\n");
 				Intent viewGraphsIntent = new Intent(getApplicationContext(), ViewGraphs.class);
 				startActivity(viewGraphsIntent);
 				

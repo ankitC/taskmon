@@ -26,7 +26,7 @@ public class SetReserveActivity extends Activity {
 	public static LinkedHashMap<Integer, Observer> pidMap = new LinkedHashMap<Integer, Observer>();
 	public static LinkedHashMap<Integer, Double> pidTMap = new LinkedHashMap<Integer, Double>();
 	public static float timerPeriod;
-	
+
 	public static String debug = "TEAM11";
 
 	private EditText ePid;
@@ -68,13 +68,16 @@ public class SetReserveActivity extends Activity {
 					Toast success = Toast.makeText(getApplicationContext(),
 							"Reservation Set on pid:" + pid, Toast.LENGTH_LONG);
 					success.show();
-					
+
 					double t = ((double)tSec*1000000000) + tNsec;
 					Log.w(debug, "T set= "+ t);
-					Observer taskObserver =new Observer(pid, t);
-					
-					pidMap.put(pid, taskObserver);
-			
+					if (!pidMap.containsKey(pid))
+					{
+						Observer taskObserver =new Observer(pid, t);
+
+						pidMap.put(pid, taskObserver);
+						pidTMap.put(pid, t);
+					}
 				} else {
 					Toast failed = Toast.makeText(getApplicationContext(),
 							"Reservation could not be set", Toast.LENGTH_LONG);
@@ -94,12 +97,12 @@ public class SetReserveActivity extends Activity {
 
 	private static native int setReserve(int pid, int cSec, long cNsec,
 			int tSec, long tNsec, int prio);
-	
-	public static Double findMin(){
+
+	/*public static Double findMin(){
 		Collection<Double> min = pidTMap.values();
 		Arrays.sort(min.toArray());
-		Double[] sorted = (Double[]) min.toArray();
-		return sorted[0];
-	}
+		Object sorted[] = min.toArray();
+		return Double.parseDouble(sorted[0].toString());
+	}*/
 
 }

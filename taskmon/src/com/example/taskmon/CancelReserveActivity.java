@@ -21,13 +21,18 @@ public class CancelReserveActivity extends Activity {
 
 		System.loadLibrary("reservationFramework");
 		ePid=((EditText)findViewById(R.id.pidInputCancel));
-		
+
 		Button cancelButton = (Button)findViewById(R.id.cancelButton);
 		cancelButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				pid = Integer.parseInt((ePid.getText().toString())); 
+				if (SetReserveActivity.pidMap.containsKey(pid))
+				{
+					SetReserveActivity.pidMap.remove(pid);
+					SetReserveActivity.pidTMap.remove(pid);
+				}
 				int retVal=cancelReserve(pid);
 				if(retVal == 0){
 					Toast success=Toast.makeText(getApplicationContext(), "Reservation Cancelled on pid:"+pid, Toast.LENGTH_LONG);
