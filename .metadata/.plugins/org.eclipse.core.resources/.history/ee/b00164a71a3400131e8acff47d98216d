@@ -1,0 +1,124 @@
+package com.example.taskmon;
+
+import java.util.Calendar;
+import java.util.Iterator;
+
+import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.SystemClock;
+import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
+import android.view.Menu;
+import android.widget.LinearLayout;
+
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GraphView.GraphViewData;
+import com.jjoe64.graphview.LineGraphView;
+
+public class ViewGraphs extends Activity {
+
+	// public static double systime = System.currentTimeMillis();
+
+	public static GraphView graphView;
+	public static int index;
+	public static int timeCounter=0 ;
+	public static int color[] = { Color.GRAY,  Color.RED, Color.BLUE, Color.GREEN,Color.BLACK,};
+	public String debug = "TEAM11";
+	public boolean timerStarted = false;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_view_graphs);
+
+		//Log.w(debug, "****In the on create for graphs*****");
+
+		graphView = new LineGraphView(this, "Utilization Graphs");
+		graphView.setViewPort(0, 10);	
+		graphView.setScrollable(true);
+		graphView.scrollToEnd();
+		graphView.setManualYAxis(true);
+		graphView.setManualYAxisBounds(1, 0);
+		graphView.getGraphViewStyle().setHorizontalLabelsColor(Color.BLACK);  
+		graphView.getGraphViewStyle().setVerticalLabelsColor(Color.BLACK);
+		graphView.getGraphViewStyle().setNumHorizontalLabels(10);
+		graphView.getGraphViewStyle().setVerticalLabelsWidth(40);
+		//graphView.getGraphViewStyle().setTextSize(getResources().getDimension(5));
+
+		LinearLayout layout = (LinearLayout) findViewById(R.id.graph);
+		layout.addView(ViewGraphs.graphView);
+
+		//	Log.w(debug, "****Registering CallbackReceiver*****");
+		ResponseReceiver dataPointsReceiver = new ResponseReceiver();
+		LocalBroadcastManager.getInstance(this).registerReceiver(dataPointsReceiver,new IntentFilter("com.example.taskmon"));
+		//	Log.w(debug, "****Finished registering receiver*****");
+
+		if(!timerStarted){
+			this.startDataCollector(MainActivity.refreshInterval);
+			timerStarted=true;
+		}
+	}
+
+	// Broadcast receiver for receiving status updates from the IntentService
+	private class ResponseReceiver extends BroadcastReceiver
+	{
+		public ResponseReceiver(){	}
+
+		// Called when the BroadcastReceiver gets an Intent it's registered to receive
+		public  void onReceive(Context context, Intent intent) {
+			Log.w(debug, "****Received the broadCast*****");
+
+			double time =System.currentTimeMillis() - MainActivity.startTime;
+			double dataPoint = 0;
+
+			Iterator<Observer> itr = SetReserveActivity.pidMap.values().iterator();
+			//	Log.w(debug, "****Going into while*****");
+
+			while (itr.hasNext()) {
+				Observer reservation = itr.next();
+				reservation.getDataSeries().getStyle().color= color[reservation.getColor()];
+				for(int i= 0; i< reservation.getDataPoints().size(); i++)
+				{
+
+					double plotPoint = (double)reservation.getDataPoints().get(i)/reservation.t;
+
+					double plotTime = time+ (double)(MainActivity.refreshInterval*i)/reservation.getDataPoints().size();
+					plotTime=plotTime/5000;
+
+					Log.w(debug, "PlotPoint:"+plotPoint+"    plotTime:"+plotTime);
+
+					reservation.getDataSeries().appendData(new GraphViewData(plotTime,plotPoint), true, 1000);
+					
+
+				}
+				ViewGraphs.graphView.addSeries(reservation.getDataSeries());
+
+			}
+
+		}
+	}
+
+
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.view_graphs, menu);
+		return true;
+	}
+
+	private void startDataCollector(long refreshInterval){
+		AlarmManager am=(AlarmManager)getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+		Intent i = new Intent(getApplicationContext(), DataCollector.class);
+		PendingIntent pi = PendingIntent.getService(getApplicationContext(), 0, i, 0);
+		am.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime(), refreshInterval , pi); // Millisec * Second * Minute
+	}
+}

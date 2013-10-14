@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">taskMonV2</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="setReserve">Set Reserve</string>
+    <string name="cancelReserve">Cancel Reservre</string>
+    <string name="pid">PID</string>
+    <string name="c">C</string>
+    <string name="t">T</string>
+    <string name="priority">Priority</string>
+    <string name="seconds">Seconds</string>
+    <string name="nanoSeconds">Nano Seconds</string>
+
+</resources>
