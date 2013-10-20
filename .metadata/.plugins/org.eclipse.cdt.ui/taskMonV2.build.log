@@ -1,8 +1,0 @@
-
-**** Build of configuration Default for project taskMonV2 ****
-
-/home/ankit/android-ndk-r9/ndk-build 
-Android NDK: WARNING: APP_PLATFORM android-14 is larger than android:minSdkVersion 8 in ./AndroidManifest.xml    
-Install        : libreservationFramework.so => libs/armeabi/libreservationFramework.so
-
-**** Build Finished ****
