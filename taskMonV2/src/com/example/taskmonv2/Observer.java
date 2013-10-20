@@ -15,6 +15,7 @@ public class Observer {
 	private int color;
 
 	public static int colorIndex = 0;
+	
 	public Observer(int pid, double t){
 		this.pid = pid;
 		this.t = t;
@@ -22,6 +23,7 @@ public class Observer {
 		dataPoints= new ArrayList<Double>();
 		color = (colorIndex++%5);
 	}
+	
 	public int getColor() {
 		return color;
 	}

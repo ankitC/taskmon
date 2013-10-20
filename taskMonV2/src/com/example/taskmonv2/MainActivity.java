@@ -125,8 +125,7 @@ public class MainActivity extends Activity {
 
 
 						
-						int retVal = setReserve(pid, cSec, cNsec, tSec, tNsec,
-								prio);
+						int retVal = setReserve(pid, cSec, cNsec, tSec, tNsec,prio);
 						if (retVal == 0) {
 							Toast success = Toast.makeText(
 									getApplicationContext(),	"Reservation Set on pid:" + pid, Toast.LENGTH_SHORT);
