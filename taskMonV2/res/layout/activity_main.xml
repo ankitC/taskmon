@@ -17,7 +17,14 @@
         <LinearLayout
             android:id="@+id/graph"
             android:layout_width="fill_parent"
-            android:layout_height="350dip"
+            android:layout_height="175dip"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/contextgraph"
+            android:layout_width="fill_parent"
+            android:layout_height="175dip"
             android:orientation="vertical" >
         </LinearLayout>
 
@@ -112,9 +119,7 @@
                 android:ems="10"
                 android:hint="@string/priority"
                 android:inputType="number" />
-
         </LinearLayout>
-
     </LinearLayout>
 
 </ScrollView>

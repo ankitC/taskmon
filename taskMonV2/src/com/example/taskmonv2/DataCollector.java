@@ -25,99 +25,131 @@ public class DataCollector extends Service{
 		 */
 		String folderName = "/sys/rtes/tasks/";
 		File folder = new File(folderName);
-		String[] pids = folder.list();
+		String[] pids =folder.list();
+		boolean flag = false;	
 		Set<Integer> currentFolderList = new HashSet<Integer>();
 		int pid;
 		double t=0;
-	
-		for(int i =0; i<pids.length;i++){
-			
-			pid=Integer.parseInt(pids[i]);
-			currentFolderList.add(pid);
-			
-			String tFile = folderName + pid+ "/tval";
-			BufferedReader tReader;
-			try{
-				tReader = new BufferedReader(new FileReader(tFile));
-				t = Double.parseDouble(tReader.readLine());
-				tReader.close();
-			}catch(Exception e){
-				Log.d(MainActivity.debug,"Exception Occured while trying to read T due to "+e.getCause());
-			}
-			
-			if(!MainActivity.pidMap.containsKey(pid)){
-					/*  Do the math for T */
-					Observer o = new Observer(pid, t);
-					MainActivity.pidMap.put(pid, o);
-			}
-			else
-				MainActivity.pidMap.get(pid).setT(t);
-		}
-		
-		/*
-		 * When a task reservation is cancelled the folders will no longer be
-		 * present in the sysfs. In that case, we identify those folders and 
-		 * remove them from the Map.
-		 */  
-		Set<Integer> keysFromMap = MainActivity.pidMap.keySet();
-		keysFromMap.remove(currentFolderList);
-		
-		/* If difference was found, remove them from the Map */
-		if(!keysFromMap.isEmpty()){
-			Iterator<Integer>removePidIterator = keysFromMap.iterator();
-			
-			while(removePidIterator.hasNext())
-				MainActivity.pidMap.remove(removePidIterator.next());
-		}
 
+		synchronized (MainActivity.pidMap) {
 
-		Iterator<Observer> observerItr =  MainActivity.pidMap.values().iterator();
-		//	Log.w(SetReserveActivity.debug,"In Service\n Length = "+SetReserveActivity.pidMap.size());
-		//Log.w(MainActivity.debug,"In Service");
+			if(pids != null){
+				Log.w(MainActivity.debug,"Folders Length = "+pids.length);
+				for(int i =0; i<pids.length;i++){
 
-		boolean flag = false;	
+					pid=Integer.parseInt(pids[i]);
+					currentFolderList.add(pid);
 
-		/* Iterator to go through the list of reservations made by the app and find their values */
-		while (observerItr.hasNext()) {	
-			Observer reservation = observerItr.next();
-			//	Log.w(SetReserveActivity.debug,"Pid "+ reservation.getPid()+" time counter "+ViewGraphs.timeCounter+" T "+((int)(reservation.getT()/1000000000)));
-			String filenameUtil = "/sys/rtes/tasks/" + reservation.getPid() + "/util";
-			String data = null;
-			reservation.getDataPoints().clear();
-			while(true){
-				try {
+					String tFile = folderName + pid+ "/tval";
+					BufferedReader tReader;
+					try{
+						tReader = new BufferedReader(new FileReader(tFile));
+						t = Double.parseDouble(tReader.readLine());
+						tReader.close();
+					}catch(Exception e){
+						Log.d(MainActivity.debug,"Exception Occured while trying to read T due to "+e.getCause());
+					}
 
-					BufferedReader brUtil = new BufferedReader(new FileReader(filenameUtil));
-					data = brUtil.readLine();	
-					Log.w(MainActivity.debug,"InService: Data="+data);
-
-					if(data == null)
-						break;
-
-					reservation.getDataPoints().add(new Double(Double.parseDouble(data)));
-					flag = true;
-
-					brUtil.close();
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.getCause();
+					if(!MainActivity.pidMap.containsKey(pid)){
+						/*  Do the math for T */
+						Observer o = new Observer(pid, t);
+						MainActivity.pidMap.put(pid, o);
+						Log.w(MainActivity.debug,"Key Found");
+					}
+					else
+						MainActivity.pidMap.get(pid).setT(t);
 				}
-			}
+
+				/*
+				 * When a task reservation is cancelled the folders will no longer be
+				 * present in the sysfs. In that case, we identify those folders and 
+				 * remove them from the Map.
+				 */  
+				Set<Integer> keysFromMap = MainActivity.pidMap.keySet();
+
+				final Iterator <Integer>mapIterator = keysFromMap.iterator();
+				/* If difference was found, remove them from the Map */		
+				while(mapIterator.hasNext()){
+					int checked_pid = mapIterator.next();
+					if(currentFolderList.contains(checked_pid))
+						continue;
+					else
+						MainActivity.pidMap.remove(checked_pid);
+				}
+
+				Iterator<Observer> observerItr =  MainActivity.pidMap.values().iterator();
+				//	Log.w(SetReserveActivity.debug,"In Service\n Length = "+SetReserveActivity.pidMap.size());
+
+				/* Iterator to go through the list of reservations made by the app and find their values */
+				while (observerItr.hasNext()) {	
+					Observer reservation = observerItr.next();
+					String filenameUtil = "/sys/rtes/tasks/" + reservation.getPid() + "/util";
+					String data = null;
+					reservation.getDataPoints().clear();
+					while(true){
+						try {
+
+							BufferedReader brUtil = new BufferedReader(new FileReader(filenameUtil));
+							data = brUtil.readLine();	
+
+							if(data == null)
+								break;
+
+							reservation.getDataPoints().add(new Double(Double.parseDouble(data)));
+							flag = true;
+							Log.w(MainActivity.debug,"Pid "+ reservation.getPid()+"\t C:"+ Double.parseDouble(data));
+							brUtil.close();
+						} catch (Exception e) {
+							e.getCause();
+						}
+					}
+
+					String filenameCtx = "/sys/rtes/tasks/" + reservation.getPid() + "/ctx";
+					String status = null;
+					String time = null;
+					String ctxLine = null;
+					
+					reservation.getContextPoints().clear();
+					reservation.getContextState().clear();
+
+					while(true){
+						try{
+							BufferedReader ctxUtil = new BufferedReader(new FileReader(filenameCtx));
+							ctxLine =ctxUtil.readLine();
+							flag = true;
+							if(ctxLine == null)
+								break;
+					
+							String splitted[] = ctxLine.split("\\s");
+							time = splitted[0];
+							status = splitted[1];
+							//Log.w(MainActivity.debug,"Pid "+ reservation.getPid()+"\t Time:"+time+" Status:"+status);
+							reservation.getContextPoints().add(new Double(Double.parseDouble(time)));
+							if(status.equalsIgnoreCase("in")){
+								reservation.getContextState().add(new Integer(1));
+							}
+							else
+								reservation.getContextState().add(new Integer(0));
+
+							//reservation.get
+						}catch(Exception e){
+							e.getCause();
+					}
+				}
+
+			}/* While ends */
 		}
-
-		Log.w(MainActivity.debug,"FinishedServiceIteration");
-		/* Return a broadcast if a value was read during this callback */
-		if(flag){
-			Intent returnIntent =  new Intent("com.example.taskmonv2");
-			LocalBroadcastManager.getInstance(this).sendBroadcast(returnIntent);
-		}
-		return Service.START_STICKY;
 	}
-
-	@Override
-	public IBinder onBind(Intent intent) {
-		// TODO Auto-generated method stub
-		return null;
+	Log.w(MainActivity.debug,"FinishedServiceIteration");
+	/* Return a broadcast if a value was read during this callback */
+	if(flag){
+		Intent returnIntent =  new Intent("com.example.taskmonv2");
+		LocalBroadcastManager.getInstance(this).sendBroadcast(returnIntent);
 	}
+	return Service.START_STICKY;
+}
 
+public IBinder onBind(Intent intent) {
+	return null;
+}
 }
