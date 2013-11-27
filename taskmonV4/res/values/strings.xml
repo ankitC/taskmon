@@ -4,5 +4,14 @@
     <string name="app_name">taskmonV4</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="setReserveText">Set Reserve</string>
+    <string name="cancelReserveText">Cancel Reserve</string>
+    <string name="cSecText">C(sec)</string>
+    <string name="cNsText">C(nsec)</string>
+    <string name="tSecText">T(sec)</string>
+    <string name="tNsText">T(nsec)</string>
+    <string name="pidText">PID</string>
+    <string name="prioText">Priority</string>
+    <string name="totalEnergy">Total Energy:</string>
 
 </resources>
