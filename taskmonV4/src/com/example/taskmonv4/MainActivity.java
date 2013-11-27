@@ -1,5 +1,7 @@
 package com.example.taskmonv4;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -184,6 +186,19 @@ public class MainActivity extends Activity {
 				table.addView(row);
 				i++;
 			}
+			
+			try{
+				TextView energyDisplay = (TextView) findViewById(R.id.totalEnergy);
+				String energyValue = new BufferedReader(new FileReader("/sys/rtes/energy")).readLine();
+				if(energyValue != null)
+					energyDisplay.setText(energyValue);				
+				else
+					energyDisplay.setText("0");
+				
+			}catch (Exception e){
+				System.out.println("Exception in reading total energy");
+			}
+			
 		}
 		
 		
