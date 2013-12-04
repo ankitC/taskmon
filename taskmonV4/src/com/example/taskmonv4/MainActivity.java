@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
 
 	public static boolean plotContext = true;
 	public boolean timerStarted = false;
-
+	public static int counter = 0;
 	public static Context context;
 
 	@Override
@@ -65,7 +65,6 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		System.loadLibrary("reservationFramework");
-
 		context = getApplicationContext();
 
 		if (!timerStarted) {
@@ -164,8 +163,10 @@ public class MainActivity extends Activity {
 			
 			TableRow headerRow = new TableRow(context);
 			TextView headerTv = new TextView(context);
-			headerTv.setText("No.\t\t\tPID\t\t\tEnergy(x10^-12 J)");
+			headerTv.setText("No.\t\t\tPID\t\t\t\tEnergy(uJ)");
 			headerTv.setGravity(Gravity.LEFT);
+			headerTv.setTextColor(Color.BLACK);
+			headerTv.setTextSize(18);
 			headerRow.addView(headerTv);
 			table.addView(headerRow);
 			
@@ -182,6 +183,7 @@ public class MainActivity extends Activity {
 				tv.setHighlightColor(Color.RED);
 				tv.setTextColor(Color.RED);
 				tv.setGravity(Gravity.LEFT);
+				tv.setTextSize(18);
 				row.addView(tv);
 				table.addView(row);
 				i++;
@@ -190,11 +192,14 @@ public class MainActivity extends Activity {
 			try{
 				TextView energyDisplay = (TextView) findViewById(R.id.totalEnergy);
 				String energyValue = new BufferedReader(new FileReader("/sys/rtes/energy")).readLine();
+				counter++;
+				if(counter%60==0)
+					Log.w(debug, "TotalEnergy is :"+ energyValue);
 				if(energyValue != null)
 					energyDisplay.setText(energyValue);				
 				else
 					energyDisplay.setText("0");
-				
+				energyDisplay.setTextSize(18);
 			}catch (Exception e){
 				System.out.println("Exception in reading total energy");
 			}
